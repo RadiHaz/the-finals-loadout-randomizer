@@ -83,11 +83,7 @@ export class ItemRandomizerService {
     {id: 19, name: "Sledgehammer", img: "", class: "HEAVY", type: "WEAPON"}
   ];
 
-  items: IItem[] = [...this.sharedGadgets, ...this.light, ...this.medium, ...this.heavy]
-
-  constructor() {
-  }
-
+  items: IItem[] = [...this.sharedGadgets, ...this.light, ...this.medium, ...this.heavy];
   filterItemsByType(playerClass: IItem[], itemType: string) {
     return playerClass.filter(item => item.type === itemType);
   }
@@ -97,7 +93,7 @@ export class ItemRandomizerService {
     return {item: itemArr[randomIndex], index: randomIndex};
   }
 
-  getPlayerClass(name: string) {
+  getPlayerClass(name: string): IItem[] {
     if(name === "LIGHT") {
       return this.light;
     }
@@ -109,16 +105,20 @@ export class ItemRandomizerService {
     }
    }
 
+   handleRandomization(playerClass: IItem[], itemType: string) {
+     const filteredItems = this.filterItemsByType(playerClass, itemType);
+     return this.getRandomItem(filteredItems);
+   }
+
   getRandomLoadout(className: string) {
-    const playerClass = this.getPlayerClass(className)
     let selectedItems = [];
 
-    const abilityItems = this.filterItemsByType(playerClass, "ABILITY")
-    const randomAbility = this.getRandomItem(abilityItems);
+    const playerClass = this.getPlayerClass(className);
+
+    const randomAbility = this.handleRandomization(playerClass, "ABILITY");
     selectedItems.push(randomAbility.item);
 
-    const weaponItems = this.filterItemsByType(playerClass, "WEAPON");
-    const randomWeapon = this.getRandomItem(weaponItems);
+    const randomWeapon = this.handleRandomization(playerClass, "WEAPON");
     selectedItems.push(randomWeapon.item);
 
     const gadgetItems = this.filterItemsByType(playerClass, "GADGET");
