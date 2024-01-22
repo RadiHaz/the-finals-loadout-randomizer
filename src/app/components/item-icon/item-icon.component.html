@@ -1,0 +1,20 @@
+<div>
+  <h2>Loadout Aleatório</h2>
+  <form [formGroup]="playerForm">
+    <select formControlName="playerClass">
+      <option [value]="'LIGHT'">
+        Light
+      </option>
+      <option [value]="'MEDIUM'">
+        Medium
+      </option>
+      <option [value]="'HEAVY'">
+        Heavy
+      </option>
+    </select>
+  </form>
+  <ul>
+    <li *ngFor="let item of loadout">{{ item.class }} - {{item.type}} - {{item.name}}</li>
+  </ul>
+  <button (click)="generateLoadout()">Gerar Novo Loadout</button>
+</div>
