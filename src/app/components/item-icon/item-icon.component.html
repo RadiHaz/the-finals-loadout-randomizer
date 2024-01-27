@@ -1,16 +1,19 @@
 <div class="form-div">
   <form [formGroup]="playerForm">
     <div class="classes-buttons">
-      <button (click)="playerForm.get('playerClass')?.setValue('LIGHT')" [class.active]="playerForm.get('playerClass')?.value === 'LIGHT'"
-              class="circular-button tf_button__main"
+      <button (click)="playerForm.get('playerClass')?.setValue('LIGHT')"
+              [class.active]="playerForm.get('playerClass')?.value === 'LIGHT'"
+              class="circular-button tf_button__main tf_button__main__white-border"
               type="button">LIGHT
       </button>
-      <button (click)="playerForm.get('playerClass')?.setValue('MEDIUM')" [class.active]="playerForm.get('playerClass')?.value === 'MEDIUM'"
-              class="circular-button tf_button__main"
+      <button (click)="playerForm.get('playerClass')?.setValue('MEDIUM')"
+              [class.active]="playerForm.get('playerClass')?.value === 'MEDIUM'"
+              class="circular-button tf_button__main tf_button__main__white-border"
               type="button">MEDIUM
       </button>
-      <button (click)="playerForm.get('playerClass')?.setValue('HEAVY')" [class.active]="playerForm.get('playerClass')?.value === 'HEAVY'"
-              class="circular-button tf_button__main"
+      <button (click)="playerForm.get('playerClass')?.setValue('HEAVY')"
+              [class.active]="playerForm.get('playerClass')?.value === 'HEAVY'"
+              class="circular-button tf_button__main tf_button__main__white-border"
               type="button">HEAVY
       </button>
     </div>
@@ -25,6 +28,12 @@
       </li>
     </ul>
   </div>
-  <div class="spacing"></div>
-  <button (click)="generateLoadout()" class="tf_button__main rounded__soft btn__tall padding__big">Generate Random Loadout</button>
+  <button (click)="generateLoadout()"
+          class="tf_button__main rounded__soft btn__tall padding__big tf_button__main__white-border"
+          id="generate-btn">Generate Random
+    Loadout
+  </button>
+  <footer>
+    <p>From RadiHaz with ❤️ to The Finals' community</p>
+  </footer>
 </div>

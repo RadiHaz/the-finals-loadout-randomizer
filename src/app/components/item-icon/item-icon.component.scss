@@ -8,6 +8,12 @@
   justify-content: center; /* Centraliza a lista horizontalmente no contêiner */
 }
 
+.list__container {
+  border: 1em solid $main-red;
+  max-width: 75%;
+  padding: $main-font-size;
+}
+
 button.active {
   background-color: $main-red; /* Cor de fundo para o botão ativo */
   color: $main-white;
@@ -17,8 +23,15 @@ button.active {
   font-weight: bold;
 }
 
+.form-div {
+}
+
 .spacing {
   margin: 5em 0;
+}
+
+button:active {
+  transform: scale(0.95);
 }
 
 .classes-buttons {
@@ -34,7 +47,7 @@ button.active {
   display: flex;
   justify-content: center; /* Centraliza o conteúdo horizontalmente */
   align-items: center; /* Centraliza o conteúdo verticalmente */
-  font-size: 1.25em;
+  font-size: $sec-font-size;
 }
 
 .rounded__soft {
@@ -50,21 +63,33 @@ button.active {
   background-color: $main-black;
   cursor: pointer;
   padding: .4em;
-  border: solid .25em $main-white;
-  transition: background-color .5s;
+  transition: background-color .2s;
   font-family: "Noto Sans Display", sans-serif;
   font-weight: bold;
 }
 
+.tf_button__main__red-border {
+  border: solid .25em $main-red;
+}
+
+.tf_button__main__white-border {
+  border: solid .25em $main-white;
+}
+
 .padding__big {
   //padding: 4em;
-  font-size: 35px;
+  font-size: $main-font-size;
 }
 
 .tf_button__main:hover {
   background-color: $main-white;
   border: solid .25em $main-white;
   color: $main-black
+}
+
+#generate-btn:hover {
+  background-color: $main-red;
+  color: $main-white;
 }
 
 .item-name {
@@ -84,6 +109,12 @@ button.active {
   align-items: center;
   text-align: center;
   font-family: "Noto Sans Display", sans-serif;
-  font-size: 2em;
-  color: $main-red;
+  font-size: $sec-font-size + .3em;
+  color: $main-white;
+}
+
+footer {
+  padding-top: 2em;
+  font-size: $main-font-size - .5em;
+  font-weight: lighter;
 }
