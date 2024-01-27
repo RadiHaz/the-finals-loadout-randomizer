@@ -1,7 +1,17 @@
 import {Component, OnInit} from '@angular/core';
 import {NgForOf} from "@angular/common";
 import {IItem, ItemRandomizerService} from "../../services/item-randomizer/item-randomizer.service";
-import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, UntypedFormGroup} from "@angular/forms";
+import {
+  FormArray,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  UntypedFormGroup
+} from "@angular/forms";
+import {MatOption, MatSelect} from "@angular/material/select";
+import {MatButton} from "@angular/material/button";
 
 @Component({
   selector: 'app-item-icon',
@@ -9,27 +19,49 @@ import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, U
   imports: [
     NgForOf,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelect,
+    MatOption,
+    MatButton
   ],
   templateUrl: './item-icon.component.html',
   styleUrl: './item-icon.component.scss'
 })
-export class ItemIconComponent implements OnInit{
+export class ItemIconComponent implements OnInit {
 
   loadout: IItem[] = [];
   playerForm = new FormGroup({
-    playerClass: new FormControl("LIGHT")
+    playerClass: new FormControl("LIGHT"),
+    selectedItems: new FormArray([
+      new FormControl(true),
+      new FormControl(true),
+      new FormControl(true),
+      new FormControl(true),
+      new FormControl(true)
+    ])
   });
-  constructor(private itemRandomizerService: ItemRandomizerService, private formBuilder: FormBuilder) {}
+
+  constructor(private itemRandomizerService: ItemRandomizerService) {
+  }
 
   ngOnInit() {
-    // this.loadout = this.itemRandomizerService.getRandomLoadout();
+    this.generateLoadout();
   }
 
   generateLoadout() {
     const playerClass = this.playerForm.get("playerClass")?.value;
     this.loadout = this.itemRandomizerService.getRandomLoadout(playerClass || "LIGHT");
     console.log("player class", playerClass)
+  }
+
+  get selectedImagesFormArray(): FormArray {
+    return this.playerForm.get('selectedItems') as FormArray;
+  }
+
+
+  onSelectImage(index: number) {
+    let control = this.selectedImagesFormArray.at(index);
+    control.setValue(!control.value); // Inverte o estado atual (selecionado/não selecionado)
   }
 
 }

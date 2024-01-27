@@ -1,19 +1,30 @@
-<div>
+<div class="form-div">
   <form [formGroup]="playerForm">
-    <select formControlName="playerClass">
-      <option [value]="'LIGHT'">
-        Light
-      </option>
-      <option [value]="'MEDIUM'">
-        Medium
-      </option>
-      <option [value]="'HEAVY'">
-        Heavy
-      </option>
-    </select>
+    <div class="classes-buttons">
+      <button (click)="playerForm.get('playerClass')?.setValue('LIGHT')" [class.active]="playerForm.get('playerClass')?.value === 'LIGHT'"
+              class="circular-button tf_button__main"
+              type="button">LIGHT
+      </button>
+      <button (click)="playerForm.get('playerClass')?.setValue('MEDIUM')" [class.active]="playerForm.get('playerClass')?.value === 'MEDIUM'"
+              class="circular-button tf_button__main"
+              type="button">MEDIUM
+      </button>
+      <button (click)="playerForm.get('playerClass')?.setValue('HEAVY')" [class.active]="playerForm.get('playerClass')?.value === 'HEAVY'"
+              class="circular-button tf_button__main"
+              type="button">HEAVY
+      </button>
+    </div>
   </form>
-  <ul>
-    <li *ngFor="let item of loadout">{{ item.class }} - {{item.type}} - {{item.name}}</li>
-  </ul>
-  <button (click)="generateLoadout()">Generate Random Loadout</button>
+  <div class="spacing"></div>
+  <div class="list__container">
+    <ul class="horizontal-list">
+      <li *ngFor="let item of loadout">
+        <div class="item-content">
+          <span>{{item.name}}</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="spacing"></div>
+  <button (click)="generateLoadout()" class="tf_button__main rounded__soft btn__tall padding__big">Generate Random Loadout</button>
 </div>

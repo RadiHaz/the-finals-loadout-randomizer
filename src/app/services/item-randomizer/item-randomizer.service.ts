@@ -128,6 +128,7 @@ export class ItemRandomizerService {
       selectedItems.push(randomGadget.item);
       gadgetItems.splice(randomGadget.index, 1); // Avoid duplicates
     }
+    console.log('generated shit', selectedItems)
 
     return selectedItems;
   }

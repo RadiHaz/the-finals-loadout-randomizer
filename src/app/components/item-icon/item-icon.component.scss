@@ -1,0 +1,89 @@
+@import "../../../variables";
+
+.horizontal-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centraliza a lista horizontalmente no contêiner */
+}
+
+button.active {
+  background-color: $main-red; /* Cor de fundo para o botão ativo */
+  color: $main-white;
+}
+
+.font__sec {
+  font-weight: bold;
+}
+
+.spacing {
+  margin: 5em 0;
+}
+
+.classes-buttons {
+  display: flex;
+  column-gap: 2rem;
+  justify-content: center;
+}
+
+.circular-button {
+  border-radius: 50%;
+  width: 8rem; /* Largura do botão */
+  height: 8rem; /* Altura do botão */
+  display: flex;
+  justify-content: center; /* Centraliza o conteúdo horizontalmente */
+  align-items: center; /* Centraliza o conteúdo verticalmente */
+  font-size: 1.25em;
+}
+
+.rounded__soft {
+  border-radius: 2.5%;
+}
+
+.list__container {
+  margin: 5em auto;
+}
+
+.tf_button__main {
+  color: $main-white;
+  background-color: $main-black;
+  cursor: pointer;
+  padding: .4em;
+  border: solid .25em $main-white;
+  transition: background-color .5s;
+  font-family: "Noto Sans Display", sans-serif;
+  font-weight: bold;
+}
+
+.padding__big {
+  //padding: 4em;
+  font-size: 35px;
+}
+
+.tf_button__main:hover {
+  background-color: $main-white;
+  border: solid .25em $main-white;
+  color: $main-black
+}
+
+.item-name {
+  margin: 5% auto;
+}
+
+.horizontal-list li {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza o conteúdo de cada 'li' horizontalmente */
+  margin-right: 2em;
+}
+
+.item-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: "Noto Sans Display", sans-serif;
+  font-size: 2em;
+  color: $main-red;
+}
