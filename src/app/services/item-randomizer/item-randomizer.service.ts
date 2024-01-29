@@ -19,7 +19,7 @@ export class ItemRandomizerService {
 
   setItemsImages() {
     this.items = this.items.map(item => {
-      item.img = `../../../assets/images/${item.type}/${item.class}/${item.name.toUpperCase()}.png`;
+      item.img = `assets/images/${item.type}/${item.class}/${item.name.toUpperCase()}.png`;
       return item;
     });
     console.log('Images set', JSON.stringify(this.items));
