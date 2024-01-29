@@ -1,17 +1,10 @@
 @import "../../../variables";
 
-.horizontal-list {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* Centraliza a lista horizontalmente no contêiner */
-}
 
 .list__container {
-  border: 1em solid $main-red;
-  max-width: 65%;
-  padding: $main-font-size;
+  margin: 5em auto;
+  padding: .5em;
+  max-width: 75%;
 }
 
 button.active {
@@ -21,9 +14,6 @@ button.active {
 
 .font__sec {
   font-weight: bold;
-}
-
-.form-div {
 }
 
 .spacing {
@@ -52,10 +42,6 @@ button:active {
 
 .rounded__soft {
   border-radius: 2.5%;
-}
-
-.list__container {
-  margin: 5em auto;
 }
 
 .tf_button__main {
@@ -92,25 +78,56 @@ button:active {
   color: $main-white;
 }
 
-.item-name {
-  margin: 5% auto;
-}
-
-.horizontal-list li {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centraliza o conteúdo de cada 'li' horizontalmente */
-  margin-right: 2em;
+.horizontal-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Cria exatamente 5 colunas de largura igual */
+  gap: 1rem; /* Espaço entre os itens da grid */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  align-items: baseline;
+  width: 100%;
+  height: 200px;
 }
 
 .item-content {
+  font-family: "Noto Sans Display", sans-serif;
+  font-size: $sec-font-size;
+  color: $main-white;
+  list-style-type: none;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  font-family: "Noto Sans Display", sans-serif;
-  font-size: $sec-font-size + .3em;
-  color: $main-white;
+  margin: .25em auto;
+}
+
+.img-container {
+  position: relative;
+  //width: 171px; // Largura da sua imagem
+  //height: 253px; // Altura da sua imagem
+  background-size: cover;
+  background-position: center;
+}
+
+.item-content__image {
+  height: 175px;
+}
+
+.cover-text {
+  position: absolute;
+  bottom: 0; // Ajuste isso para cobrir o texto apropriadamente
+  left: 0;
+  width: 100%;
+  height: 45px; // Ajuste a altura para cobrir o texto
+  background-color: $main-black; // Cor de fundo para cobrir o texto, ajuste conforme necessário
+  z-index: 70;
+}
+
+.item-content__name {
+  z-index: 100;
+  margin: -1em;
+  font-weight: 700;
 }
 
 footer {

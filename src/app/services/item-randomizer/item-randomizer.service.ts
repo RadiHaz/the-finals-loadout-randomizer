@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-
 export interface IItem {
   id: number;
   name: string;
@@ -13,10 +12,23 @@ export interface IItem {
 })
 export class ItemRandomizerService {
 
+  constructor() {
+    this.setItemsImages();
+  }
+
+
+  setItemsImages() {
+    this.items = this.items.map(item => {
+      item.img = `../../../assets/images/${item.type}/${item.class}/${item.name.toUpperCase()}.png`;
+      return item;
+    });
+    console.log('Images set', JSON.stringify(this.items));
+  };
+
+
   sharedGadgets = [
     {id: 20, name: "Frag Grenade", img: "", shared: true, class: "ANY", type: "GADGET"},
     {id: 21, name: "Pyro Grenade", img: "", shared: true, class: "ANY", type: "GADGET"},
-    {id: 22, name: "Flashbang", img: "", shared: true, class: "ANY", type: "GADGET"},
     {id: 23, name: "Goo Grenade", img: "", shared: true, class: "ANY", type: "GADGET"},
     {id: 24, name: "Gas Grenade", img: "", shared: true, class: "ANY", type: "GADGET"}
   ];
@@ -32,21 +44,22 @@ export class ItemRandomizerService {
     {id: 28, name: "Breach Charge", img: "", class: "LIGHT", type: "GADGET"},
     {id: 29, name: "Thermal Vision", img: "", class: "LIGHT", type: "GADGET"},
     {id: 30, name: "Smoke Grenade", img: "", class: "LIGHT", type: "GADGET"},
-    {id: 31, name: "Motion Sensor", img: "", class: "LIGHT", type: "GADGET"},
+    {id: 31, name: "Proximity Sensor", img: "", class: "LIGHT", type: "GADGET"},
+    {id: 22, name: "Flashbang", img: "", class: "LIGHT", type: "GADGET"},
     {id: 1, name: "Dagger", img: "", class: "LIGHT", type: "WEAPON"},
     {id: 2, name: "LH1", img: "", class: "LIGHT", type: "WEAPON"},
     {id: 3, name: "M11", img: "", class: "LIGHT", type: "WEAPON"},
     {id: 4, name: "SH1900", img: "", class: "LIGHT", type: "WEAPON"},
     {id: 5, name: "SR-84", img: "", class: "LIGHT", type: "WEAPON"},
     {id: 6, name: "Sword", img: "", class: "LIGHT", type: "WEAPON"},
-    {id: 7, name: "V95", img: "", class: "LIGHT", type: "WEAPON"},
+    {id: 7, name: "V9S", img: "", class: "LIGHT", type: "WEAPON"},
     {id: 8, name: "XP-54", img: "", class: "LIGHT", type: "WEAPON"},
   ];
 
   medium = [
     ...this.sharedGadgets,
-    {id: 50, name: "Recon Vision", img: "", class: "MEDIUM", type: "ABILITY"},
-    {id: 51, name: "Sentry Gun", img: "", class: "MEDIUM", type: "ABILITY"},
+    {id: 50, name: "Recon Senses", img: "", class: "MEDIUM", type: "ABILITY"},
+    {id: 51, name: "Guardian Turret", img: "", class: "MEDIUM", type: "ABILITY"},
     {id: 52, name: "Healing Beam", img: "", class: "MEDIUM", type: "ABILITY"},
     {id: 32, name: "Defibrillator", img: "", class: "MEDIUM", type: "GADGET"},
     {id: 33, name: "Jump Pad", img: "", class: "MEDIUM", type: "GADGET"},
@@ -55,7 +68,7 @@ export class ItemRandomizerService {
     {id: 36, name: "APS Turret", img: "", class: "MEDIUM", type: "GADGET"},
     {id: 37, name: "Explosive Mine", img: "", class: "MEDIUM", type: "GADGET"},
     {id: 38, name: "Sonar Grenade", img: "", class: "MEDIUM", type: "GADGET"},
-    {id: 39, name: "Glitch Trap", img: "", class: "MEDIUM", type: "GADGET"},
+    {id: 39, name: "Glitch Mine", img: "", class: "MEDIUM", type: "GADGET"},
     {id: 40, name: "Tracking Dart", img: "", class: "MEDIUM", type: "GADGET"},
     {id: 9, name: "AKM", img: "", class: "MEDIUM", type: "WEAPON"},
     {id: 10, name: "CL-40", img: "", class: "MEDIUM", type: "WEAPON"},
@@ -67,8 +80,8 @@ export class ItemRandomizerService {
 
   heavy = [
     ...this.sharedGadgets,
-    {id: 53, name: "Ground Slam", img: "", class: "HEAVY", type: "ABILITY"},
-    {id: 54, name: "Charge", img: "", class: "HEAVY", type: "ABILITY"},
+    {id: 53, name: "Charge N Slam", img: "", class: "HEAVY", type: "ABILITY"},
+    {id: 54, name: "Mesh Shield", img: "", class: "HEAVY", type: "ABILITY"},
     {id: 55, name: "Goo Gun", img: "", class: "HEAVY", type: "ABILITY"},
     {id: 41, name: "C4", img: "", class: "HEAVY", type: "GADGET"},
     {id: 42, name: "RPG-7", img: "", class: "HEAVY", type: "GADGET"},
@@ -84,6 +97,7 @@ export class ItemRandomizerService {
   ];
 
   items: IItem[] = [...this.sharedGadgets, ...this.light, ...this.medium, ...this.heavy];
+
   filterItemsByType(playerClass: IItem[], itemType: string) {
     return playerClass.filter(item => item.type === itemType);
   }
@@ -128,8 +142,7 @@ export class ItemRandomizerService {
       selectedItems.push(randomGadget.item);
       gadgetItems.splice(randomGadget.index, 1); // Avoid duplicates
     }
-    console.log('generated shit', selectedItems)
-
+    console.log('Generated loadout:', selectedItems);
     return selectedItems;
   }
 

@@ -21,10 +21,12 @@
   <div class="spacing"></div>
   <div class="list__container">
     <ul class="horizontal-list">
-      <li *ngFor="let item of loadout">
-        <div class="item-content">
-          <span>{{item.name}}</span>
-        </div>
+      <li class="item-content" *ngFor="let item of loadout">
+          <div class="img-container">
+            <img alt="NOT FOUND" class="item-content__image" loading="lazy" src="{{item.img}}">
+            <div class="cover-text"></div>
+          </div>
+          <span class="item-content__name">{{item.name}}</span>
       </li>
     </ul>
   </div>
@@ -34,6 +36,6 @@
     Loadout
   </button>
   <footer>
-    <p>From RadiHaz with ❤️ to The Finals' community</p>
+    <p>From Warhead with ❤️ to The Finals' community</p>
   </footer>
 </div>
