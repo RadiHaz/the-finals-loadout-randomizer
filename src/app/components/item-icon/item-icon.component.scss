@@ -8,7 +8,7 @@
 }
 
 button.active {
-  background-color: $main-red; /* Cor de fundo para o botão ativo */
+  background-color: $main-red;
   color: $main-white;
 }
 
@@ -32,11 +32,11 @@ button:active {
 
 .circular-button {
   border-radius: 50%;
-  width: 8rem; /* Largura do botão */
-  height: 8rem; /* Altura do botão */
+  width: 8rem;
+  height: 8rem;
   display: flex;
-  justify-content: center; /* Centraliza o conteúdo horizontalmente */
-  align-items: center; /* Centraliza o conteúdo verticalmente */
+  justify-content: center;
+  align-items: center;
   font-size: $sec-font-size;
 }
 
@@ -63,7 +63,6 @@ button:active {
 }
 
 .padding__big {
-  //padding: 4em;
   font-size: $main-font-size;
 }
 
@@ -80,8 +79,8 @@ button:active {
 
 .horizontal-list {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* Cria exatamente 5 colunas de largura igual */
-  gap: 1rem; /* Espaço entre os itens da grid */
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -104,8 +103,6 @@ button:active {
 
 .img-container {
   position: relative;
-  //width: 171px; // Largura da sua imagem
-  //height: 253px; // Altura da sua imagem
   background-size: cover;
   background-position: center;
 }
@@ -116,12 +113,11 @@ button:active {
 
 .cover-text {
   position: absolute;
-  bottom: 0; // Ajuste isso para cobrir o texto apropriadamente
+  bottom: 0;
   left: 0;
   width: 100%;
-  height: 45px; // Ajuste a altura para cobrir o texto
-  background-color: $main-black; // Cor de fundo para cobrir o texto, ajuste conforme necessário
-  z-index: 70;
+  height: 45px;
+  background-color: $main-black;
 }
 
 .item-content__name {

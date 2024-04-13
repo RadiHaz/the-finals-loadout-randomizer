@@ -30,6 +30,7 @@ import {MatButton} from "@angular/material/button";
 export class ItemIconComponent implements OnInit {
 
   loadout: IItem[] = [];
+  // reserveLoadout: IItem[] = [];
   playerForm = new FormGroup({
     playerClass: new FormControl("LIGHT"),
     selectedItems: new FormArray([
@@ -37,7 +38,7 @@ export class ItemIconComponent implements OnInit {
       new FormControl(true),
       new FormControl(true),
       new FormControl(true),
-      new FormControl(true)
+      new FormControl(true),
     ])
   });
 
@@ -50,18 +51,11 @@ export class ItemIconComponent implements OnInit {
 
   generateLoadout() {
     const playerClass = this.playerForm.get("playerClass")?.value;
-    this.loadout = this.itemRandomizerService.getRandomLoadout(playerClass || "LIGHT");
-    console.log("player class", playerClass)
-  }
-
-  get selectedImagesFormArray(): FormArray {
-    return this.playerForm.get('selectedItems') as FormArray;
-  }
-
-
-  onSelectImage(index: number) {
-    let control = this.selectedImagesFormArray.at(index);
-    control.setValue(!control.value); // Inverte o estado atual (selecionado/não selecionado)
+    this.loadout = this.itemRandomizerService.getRandomLoadout(playerClass || "LIGHT")
+    // this.reserveLoadout = this.itemRandomizerService.getRandomLoadout(playerClass || "LIGHT", 4).reserveLoadout;
+    // console.log("player class", playerClass);
+    // console.log("main loadout", this.mainLoadout);
+    // console.log("reserve loadout", this.reserveLoadout);
   }
 
 }
