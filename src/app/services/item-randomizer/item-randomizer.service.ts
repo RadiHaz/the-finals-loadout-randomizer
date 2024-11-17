@@ -29,7 +29,8 @@ export class ItemRandomizerService {
     {id: 20, name: "Frag Grenade", img: "", shared: true, class: "ANY", type: "GADGET"},
     {id: 21, name: "Pyro Grenade", img: "", shared: true, class: "ANY", type: "GADGET"},
     {id: 23, name: "Goo Grenade", img: "", shared: true, class: "ANY", type: "GADGET"},
-    {id: 24, name: "Gas Grenade", img: "", shared: true, class: "ANY", type: "GADGET"}
+    {id: 24, name: "Gas Grenade", img: "", shared: true, class: "ANY", type: "GADGET"},
+    {id: 22, name: "Flashbang", img: "", shared: true, class: "ANY", type: "GADGET"},
   ];
 
   light = [
@@ -43,10 +44,10 @@ export class ItemRandomizerService {
     {id: 28, name: "Breach Charge", img: "", class: "LIGHT", type: "GADGET"},
     {id: 29, name: "Thermal Vision", img: "", class: "LIGHT", type: "GADGET"},
     {id: 30, name: "Smoke Grenade", img: "", class: "LIGHT", type: "GADGET"},
-    {id: 22, name: "Flashbang", img: "", class: "LIGHT", type: "GADGET"},
     {id: 40, name: "Tracking Dart", img: "", class: "LIGHT", type: "GADGET"},
     {id: 40, name: "Gateway", img: "", class: "LIGHT", type: "GADGET"},
     {id: 38, name: "Sonar Grenade", img: "", class: "LIGHT", type: "GADGET"},
+    {id: 56, name: "Thermal Bore", img: "", class: "LIGHT", type: "GADGET"},
     {id: 1, name: "Dagger", img: "", class: "LIGHT", type: "WEAPON"},
     {id: 2, name: "LH1", img: "", class: "LIGHT", type: "WEAPON"},
     {id: 3, name: "M11", img: "", class: "LIGHT", type: "WEAPON"},
@@ -55,7 +56,8 @@ export class ItemRandomizerService {
     {id: 6, name: "Sword", img: "", class: "LIGHT", type: "WEAPON"},
     {id: 7, name: "V9S", img: "", class: "LIGHT", type: "WEAPON"},
     {id: 8, name: "XP-54", img: "", class: "LIGHT", type: "WEAPON"},
-
+    {id: 57, name: "RECURVE BOW", img: "", class: "LIGHT", type: "WEAPON"},
+    {id: 59, name: "M26 MATTER", img: "", class: "LIGHT", type: "WEAPON"},
   ];
 
   medium = [
@@ -77,6 +79,8 @@ export class ItemRandomizerService {
     {id: 12, name: "Model 1887", img: "", class: "MEDIUM", type: "WEAPON"},
     {id: 13, name: "R .357", img: "", class: "MEDIUM", type: "WEAPON"},
     {id: 14, name: "Riot Shield", img: "", class: "MEDIUM", type: "WEAPON"},
+    {id: 59, name: "PIKE-556", img: "", class: "MEDIUM", type: "WEAPON"},
+    {id: 60, name: "DUAL BLADES", img: "", class: "MEDIUM", type: "WEAPON"},
   ];
 
   heavy = [
@@ -84,6 +88,7 @@ export class ItemRandomizerService {
     {id: 53, name: "Charge N Slam", img: "", class: "HEAVY", type: "ABILITY"},
     {id: 54, name: "Mesh Shield", img: "", class: "HEAVY", type: "ABILITY"},
     {id: 55, name: "Goo Gun", img: "", class: "HEAVY", type: "ABILITY"},
+    {id: 58, name: "Winch Claw", img: "", class: "HEAVY", type: "ABILITY"},
     {id: 41, name: "C4", img: "", class: "HEAVY", type: "GADGET"},
     {id: 42, name: "RPG-7", img: "", class: "HEAVY", type: "GADGET"},
     {id: 43, name: "Dome Shield", img: "", class: "HEAVY", type: "GADGET"},
@@ -97,7 +102,9 @@ export class ItemRandomizerService {
     {id: 17, name: "M60", img: "", class: "HEAVY", type: "WEAPON"},
     {id: 18, name: "SA1216", img: "", class: "HEAVY", type: "WEAPON"},
     {id: 19, name: "Sledgehammer", img: "", class: "HEAVY", type: "WEAPON"},
-    {id: 19, name: "KS-23", img: "", class: "HEAVY", type: "WEAPON"}
+    {id: 19, name: "KS-23", img: "", class: "HEAVY", type: "WEAPON"},
+    {id: 61, name: ".50 AKIMBO", img: "", class: "HEAVY", type: "WEAPON"},
+    {id: 62, name: "SPEAR", img: "", class: "HEAVY", type: "WEAPON"}
   ];
 
   items: IItem[] = [...this.sharedGadgets, ...this.light, ...this.medium, ...this.heavy];
