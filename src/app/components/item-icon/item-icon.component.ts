@@ -49,6 +49,11 @@ export class ItemIconComponent implements OnInit {
     this.generateLoadout();
   }
 
+  randomizeClass() {
+    this.playerForm.get("playerClass")?.setValue(this.itemRandomizerService.getRandomClass());
+    this.generateLoadout();
+  }
+
   generateLoadout() {
     const playerClass = this.playerForm.get("playerClass")?.value;
     this.loadout = this.itemRandomizerService.getRandomLoadout(playerClass || "LIGHT")

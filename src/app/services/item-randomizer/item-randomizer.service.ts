@@ -103,7 +103,7 @@ export class ItemRandomizerService {
     {id: 18, name: "SA1216", img: "", class: "HEAVY", type: "WEAPON"},
     {id: 19, name: "Sledgehammer", img: "", class: "HEAVY", type: "WEAPON"},
     {id: 19, name: "KS-23", img: "", class: "HEAVY", type: "WEAPON"},
-    {id: 61, name: ".50 AKIMBO", img: "", class: "HEAVY", type: "WEAPON"},
+    {id: 61, name: "50 AKIMBO", img: "", class: "HEAVY", type: "WEAPON"},
     {id: 62, name: "SPEAR", img: "", class: "HEAVY", type: "WEAPON"}
   ];
 
@@ -116,6 +116,19 @@ export class ItemRandomizerService {
   getRandomItem(itemArr: IItem[]) {
     const randomIndex = Math.floor(Math.random() * itemArr.length);
     return {item: itemArr[randomIndex], index: randomIndex};
+  }
+
+  getRandomClass() {
+    const randomIndex = Math.floor(Math.random() * 3);
+    if(randomIndex === 0) {
+      return "LIGHT";
+    }
+    else if(randomIndex === 1) {
+      return "MEDIUM";
+    }
+    else {
+      return "HEAVY";
+    }
   }
 
   getPlayerClass(name: string): IItem[] {

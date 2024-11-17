@@ -17,6 +17,7 @@
               type="button">HEAVY
       </button>
     </div>
+    <button (click)="randomizeClass()" id="random_class" class="tf_button__main rounded__soft btn__tall padding__big tf_button__main__white-border">RANDOMIZE CLASS</button>
   </form>
   <div class="spacing"></div>
   <div class="list__container">
@@ -32,8 +33,7 @@
   </div>
   <button (click)="generateLoadout()"
           class="tf_button__main rounded__soft btn__tall padding__big tf_button__main__white-border"
-          id="generate-btn">Generate Random
-    Loadout
+          id="generate-btn">GENERATE RANDOM <span id="class_name_highlight">{{playerForm.get('playerClass')?.value}}</span> LOADOUT
   </button>
   <footer>
     <p>From Warhead with ❤️ to The Finals' community</p>
